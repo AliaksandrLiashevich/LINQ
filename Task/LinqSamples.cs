@@ -102,8 +102,6 @@ namespace SampleQueries
                 where c.Orders.Any(o => o.Total > 15000)
                 select new { ClientName = c.CompanyName,  MaxOrderPrice = c.Orders.Max(i => i.Total)};
 
-            //this 'max' worry me! Need to be checked!
-
             foreach (var c in clients)
             {
                 ObjectDumper.Write(c);
@@ -119,8 +117,6 @@ namespace SampleQueries
                 from c in dataSource.Customers
                 where c.Orders.Any()
                 select new { ClientName = c.CompanyName, FirstOrderDate = c.Orders.Min(o => o.OrderDate) };
-
-            //this 'min' worry me! Need to be checked!
 
             foreach (var c in clients)
             {
